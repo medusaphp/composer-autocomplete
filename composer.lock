@@ -1,0 +1,145 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "659f399bfad7219fe0bfc493a0646be8",
+    "packages": [
+        {
+            "name": "medusa/easy-completion",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/medusaphp/easy-completion.git",
+                "reference": "f0bdba4cb73fa53e320253872ffce994e0c35ce5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/f0bdba4cb73fa53e320253872ffce994e0c35ce5",
+                "reference": "f0bdba4cb73fa53e320253872ffce994e0c35ce5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "medusa/dev-tools-alias": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Medusa\\EasyCompletion\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pascal Schnell",
+                    "email": "pascal.schnell@getmedusa.org"
+                }
+            ],
+            "description": "Create own bash completion scripts in minutes",
+            "keywords": [
+                "autocomplete",
+                "bash_completion",
+                "completion"
+            ],
+            "support": {
+                "issues": "https://github.com/medusaphp/easy-completion/issues",
+                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.1"
+            },
+            "time": "2021-07-20T12:33:18+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "medusa/dev-tools",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/medusaphp/dev-tools.git",
+                "reference": "109c2d1b5495fdd660587447b8b327cf1227f69a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/medusaphp/dev-tools/zipball/109c2d1b5495fdd660587447b8b327cf1227f69a",
+                "reference": "109c2d1b5495fdd660587447b8b327cf1227f69a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pascal Schnell",
+                    "email": "pascal.schnell@getmedusa.org"
+                }
+            ],
+            "description": "Helper functions for debugging",
+            "time": "2021-06-20T11:08:05+00:00"
+        },
+        {
+            "name": "medusa/dev-tools-alias",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/medusaphp/dev-tools-alias.git",
+                "reference": "1a460fd9ffff792b26f6bc5e4988648534820de7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/medusaphp/dev-tools-alias/zipball/1a460fd9ffff792b26f6bc5e4988648534820de7",
+                "reference": "1a460fd9ffff792b26f6bc5e4988648534820de7",
+                "shasum": ""
+            },
+            "require": {
+                "medusa/dev-tools": "*",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pascal Schnell",
+                    "email": "pascal.schnell@getmedusa.org"
+                }
+            ],
+            "description": "Helper functions for debugging (shortcuts)",
+            "time": "2021-06-20T11:09:29+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.0",
+        "ext-igbinary": "*",
+        "ext-mbstring": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "medusa/coco",
+  "authors": [
+    {
+      "name": "Pascal Schnell",
+      "email": "pascal.schnell@getmedusa.org"
+    }
+  ],
+  "description": "Composer autocomplete",
+  "keywords": [
+    "bash_completion",
+    "completion",
+    "autocomplete"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Medusa\\Coco\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "ext-igbinary": "*",
+    "ext-mbstring": "*",
+    "medusa/easy-completion": "^1.0"
+  },
+  "require-dev": {
+    "medusa/dev-tools-alias": "^1.0"
+  }
+}
