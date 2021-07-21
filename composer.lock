@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "medusa/easy-completion",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/medusaphp/easy-completion.git",
-                "reference": "f0bdba4cb73fa53e320253872ffce994e0c35ce5"
+                "reference": "5bc8a242e826cb2182487f82c65054078891cc00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/f0bdba4cb73fa53e320253872ffce994e0c35ce5",
-                "reference": "f0bdba4cb73fa53e320253872ffce994e0c35ce5",
+                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/5bc8a242e826cb2182487f82c65054078891cc00",
+                "reference": "5bc8a242e826cb2182487f82c65054078891cc00",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/medusaphp/easy-completion/issues",
-                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.1"
+                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.3"
             },
-            "time": "2021-07-20T12:33:18+00:00"
+            "time": "2021-07-21T13:41:44+00:00"
         }
     ],
     "packages-dev": [
@@ -90,6 +90,10 @@
                 }
             ],
             "description": "Helper functions for debugging",
+            "support": {
+                "issues": "https://github.com/medusaphp/dev-tools/issues",
+                "source": "https://github.com/medusaphp/dev-tools/tree/1.0.9"
+            },
             "time": "2021-06-20T11:08:05+00:00"
         },
         {
@@ -127,6 +131,10 @@
                 }
             ],
             "description": "Helper functions for debugging (shortcuts)",
+            "support": {
+                "issues": "https://github.com/medusaphp/dev-tools-alias/issues",
+                "source": "https://github.com/medusaphp/dev-tools-alias/tree/1.0.2"
+            },
             "time": "2021-06-20T11:09:29+00:00"
         }
     ],

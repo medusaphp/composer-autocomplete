@@ -123,19 +123,28 @@ class ComposerPharArgumentCompletion {
             $versions = [];
 
             if ($version !== null && $completionData->filterMatch($package)->count() === 1) {
-                $dbName = $vendor . '_' . $package;
-                $versions = (new CacheFile($dbName, 600, function() use ($vendor, $package) {
-                    if (!Database::getInstance()->dbExists('meta')) {
-                        return [];
-                    }
-                    $metaUrl = Database::getInstance()->loadFromDb('meta')['metadata-url'] ?? null;
-                    if (!$metaUrl) {
-                        return [];
-                    }
-                    $metaUrl = 'https://packagist.org' . str_replace('%package%', $vendor . '/' . $package, $metaUrl);
-                    $metaData = json_decode(file_get_contents($metaUrl), true)['packages'][$vendor . '/' . $package] ?? [];
-                    return array_column($metaData, 'version');
-                }))->get();
+
+                $exists = true;
+                if ($packageManager instanceof ComposerJsonPackageManager) {
+                    $manager = new PackageManager(Database::getInstance());
+                    $exists = $manager->getPackagesForVendor($vendor)->filterMatch($package)->count() === 1;
+                }
+
+                if ($exists) {
+                    $dbName = $vendor . '_' . $package;
+                    $versions = (new CacheFile($dbName, 600, function() use ($vendor, $package) {
+                        if (!Database::getInstance()->dbExists('meta')) {
+                            return [];
+                        }
+                        $metaUrl = Database::getInstance()->loadFromDb('meta')['metadata-url'] ?? null;
+                        if (!$metaUrl) {
+                            return [];
+                        }
+                        $metaUrl = 'https://packagist.org' . str_replace('%package%', $vendor . '/' . $package, $metaUrl);
+                        $metaData = json_decode(file_get_contents($metaUrl), true)['packages'][$vendor . '/' . $package] ?? [];
+                        return array_column($metaData, 'version');
+                    }))->get();
+                }
             }
 
             if ($version !== null) {

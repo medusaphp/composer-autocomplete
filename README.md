@@ -7,7 +7,7 @@
 git clone https://github.com/medusaphp/coco.git
 cd coco
 composer install
-php8.0 coco.php --install
-php8.0 coco.php --test-phar install
+php coco.php --create-installer
+./composer_installer.phar
 source ~/.bashrc
 ```
