@@ -1,4 +1,5 @@
-# Medusa coco
+# Composer autocomplete
+`Medusa coco` provides autocomplete functionality for Composer in Cli.
 
 ### quick installation
 
