@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "medusa/easy-completion",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/medusaphp/easy-completion.git",
-                "reference": "80c5e162cbaa72a4b3c35579b0ae402878b542fb"
+                "reference": "bdcf2b8631573fca8b9dd62afcae0e19ffa24707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/80c5e162cbaa72a4b3c35579b0ae402878b542fb",
-                "reference": "80c5e162cbaa72a4b3c35579b0ae402878b542fb",
+                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/bdcf2b8631573fca8b9dd62afcae0e19ffa24707",
+                "reference": "bdcf2b8631573fca8b9dd62afcae0e19ffa24707",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/medusaphp/easy-completion/issues",
-                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.4"
+                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.5"
             },
-            "time": "2021-07-23T07:36:18+00:00"
+            "time": "2021-07-23T12:39:01+00:00"
         }
     ],
     "packages-dev": [
