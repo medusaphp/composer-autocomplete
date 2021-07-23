@@ -15,11 +15,11 @@ chmod +x composer_installer.phar
 source ~/.bashrc
 ```
 
-It is also possible to generate `composer_installer.phar` file manually by cloning the repository.
+It is also possible to generate `composer_installer.phar` file manually by cloning the repository:
 ```bash 
 
-git clone https://github.com/medusaphp/coco.git
-cd coco
+git clone https://github.com/medusaphp/composer-autocomplete.git
+cd composer-autocomplete
 composer install
 php coco.php --create-installer
 ./composer_installer.phar
