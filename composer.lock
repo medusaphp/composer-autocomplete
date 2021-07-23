@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "659f399bfad7219fe0bfc493a0646be8",
+    "content-hash": "6b2d878e2e8b65d8ad40cd6034d00a90",
     "packages": [
         {
             "name": "medusa/easy-completion",
-            "version": "1.0.5",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/medusaphp/easy-completion.git",
-                "reference": "bdcf2b8631573fca8b9dd62afcae0e19ffa24707"
+                "reference": "fdbe1848448c61ff6895d2b1747a08ea5d074597"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/bdcf2b8631573fca8b9dd62afcae0e19ffa24707",
-                "reference": "bdcf2b8631573fca8b9dd62afcae0e19ffa24707",
+                "url": "https://api.github.com/repos/medusaphp/easy-completion/zipball/fdbe1848448c61ff6895d2b1747a08ea5d074597",
+                "reference": "fdbe1848448c61ff6895d2b1747a08ea5d074597",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/medusaphp/easy-completion/issues",
-                "source": "https://github.com/medusaphp/easy-completion/tree/1.0.5"
+                "source": "https://github.com/medusaphp/easy-completion/tree/1.1.1"
             },
-            "time": "2021-07-23T12:39:01+00:00"
+            "time": "2021-07-23T23:22:42+00:00"
         }
     ],
     "packages-dev": [
@@ -146,7 +146,8 @@
     "platform": {
         "php": ">=8.0",
         "ext-igbinary": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

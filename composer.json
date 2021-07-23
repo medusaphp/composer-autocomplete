@@ -22,9 +22,16 @@
     "php": ">=8.0",
     "ext-igbinary": "*",
     "ext-mbstring": "*",
-    "medusa/easy-completion": "^1.0"
+    "medusa/easy-completion": "^1.0",
+    "ext-json": "*"
   },
   "require-dev": {
     "medusa/dev-tools-alias": "^1.0"
+  },
+  "scripts": {
+    "test": [
+      "@php script.php",
+      "phpunit"
+    ]
   }
 }

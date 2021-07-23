@@ -1,0 +1,6 @@
+{
+  "run-installer": [
+    "@phar-cmd updatedb",
+    "@phar-cmd install"
+  ]
+}

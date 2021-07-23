@@ -24,7 +24,6 @@ class ComposerPharArgumentCompletion {
 
     public const AVAILABLE_COMMAND_ARGUMENTS = [
         'packages' => ['packages', INF],
-        //        'version',
         'package'  => 'packages',
         'version'  => 'version',
         //        'setting-key',
@@ -37,7 +36,7 @@ class ComposerPharArgumentCompletion {
         //        'command',
         //        'command_name',
         //        'namespace',
-        //        'script',
+        'script'   => 'scripts',
         //        'tokens',
         //        'file',
     ];
@@ -69,6 +68,14 @@ class ComposerPharArgumentCompletion {
 
     public static function version(Argument $argument) {
         return self::packages($argument);
+    }
+
+    public static function scripts(Argument $argument): array|ArrayObject {
+        if (!ComposerJson::exists()) {
+            return [];
+        }
+        $value = $argument->getValues()[0] ?? '';
+        return (new ArrayObject(ComposerJson::get()->getScripts()))->filter($value);
     }
 
     public static function packages(Argument $argument) {

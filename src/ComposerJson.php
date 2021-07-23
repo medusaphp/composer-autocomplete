@@ -10,6 +10,7 @@ use function file_get_contents;
 use function getcwd;
 use function is_file;
 use function json_decode;
+use function realpath;
 use function str_contains;
 
 /**
@@ -46,9 +47,9 @@ class ComposerJson {
         'pre-command-run',
         'pre-pool-create',
     ];
-
-    private array $scripts;
-    private array $packages;
+    private static array $instanceStack = [];
+    private array        $scripts;
+    private array        $packages;
 
     public function __construct(array $composerJson) {
         $this->scripts = array_keys(array_diff_key($composerJson['scripts'] ?? [], array_flip(static::COMPOSER_JSON_COMMANDS)));
@@ -56,8 +57,6 @@ class ComposerJson {
             return str_contains($package, '/');
         });
     }
-
-    private static array $instanceStack = [];
 
     public static function exists(): bool {
         $cwd = getcwd();
@@ -71,17 +70,36 @@ class ComposerJson {
         return self::$instanceStack[$cwd] !== false;
     }
 
-    public static function get(): ?static {
-        return self::$instanceStack[getcwd()] ??= self::create();
-    }
-
     public static function create(): ?static {
 
-        if (!is_file(getcwd() . '/composer.json')) {
+
+        $dir = getcwd();
+        $file = null;
+
+        while (true) {
+
+            if (!$dir || $dir === '/') {
+                break;
+            }
+
+            $file = $dir . '/composer.json';
+            if (is_file($file)) {
+                break;
+            }
+            $file = null;
+            $dir = realpath($dir . '/../');
+        }
+
+        if ($file === null) {
             return null;
         }
-        $composerJson = json_decode(file_get_contents(getcwd() . '/composer.json'), true);
+
+        $composerJson = json_decode(file_get_contents($file), true);
         return new static($composerJson);
+    }
+
+    public static function get(): ?static {
+        return self::$instanceStack[getcwd()] ??= self::create();
     }
 
     /**

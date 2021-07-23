@@ -6,7 +6,7 @@ use Medusa\Coco\Database\Database;
 use Medusa\EasyCompletion\EasyCompletion;
 
 require_once __DIR__ . '/vendor/autoload.php';
-debugLog($_SERVER['argv']);
+
 (new EasyCompletion(
     [
         'name' => 'composer',

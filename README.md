@@ -25,3 +25,16 @@ php coco.php --create-installer
 ./composer_installer.phar
 source ~/.bashrc
 ```
+
+#### Features
+
+--- 
+*Following features are only usable if a composer json was
+found in the current or in one of the parent directories.*
+---
+
+* Script autocompletion (https://getcomposer.org/doc/articles/scripts.md#executing-php-scripts)
+```shell
+composer my-script
+composer run my-script
+```
