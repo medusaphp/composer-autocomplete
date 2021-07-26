@@ -1,5 +1,11 @@
 {
   "run-installer": [
     "@phar-cmd install"
+  ],
+  "ignoreFiles": [
+    "LICENSE",
+    "README.md",
+    "composer.json",
+    "composer.lock"
   ]
 }
