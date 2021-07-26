@@ -146,7 +146,8 @@ class Installer {
         $data = $extractor->extract(true);
         if ($data !== null) {
             Database::getInstance()->saveDb('cmdlist', $data['data']);
-            Database::getInstance()->updateDb('meta', ['version' => $data['version']]);
+            unset($data['data']);
+            Database::getInstance()->updateDb('meta', $data);
         }
 
     }

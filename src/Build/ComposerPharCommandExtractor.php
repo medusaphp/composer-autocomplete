@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 namespace Medusa\Coco\Build;
 
+use Medusa\Coco\ComposerCompletion;
 use Medusa\Coco\ComposerPharArgumentCompletion;
 use Medusa\Coco\Database\Database;
 use Medusa\EasyCompletion\Cli;
@@ -13,6 +14,7 @@ use function explode;
 use function is_array;
 use function ltrim;
 use function preg_match;
+use function sprintf;
 use function str_contains;
 use function str_starts_with;
 use function trim;
@@ -39,25 +41,35 @@ class ComposerPharCommandExtractor {
      * @return array|null
      */
     public function extract(bool $foreRenew = false): ?array {
+
         $currentComposerVersion = exec('composer -V -n 2>/dev/null');
+        $currentComposerCompletionVersion = ComposerCompletion::VERSION;
+
         preg_match('/\d+.\d+.\d+/', $currentComposerVersion, $matches);
         $currentComposerVersion = $matches[0];
         $metaDbExists = $this->database->dbExists('meta');
 
+        Cli::stdOut('Composer version:     ' . $currentComposerVersion . PHP_EOL);
+        Cli::stdOut('Autocomplete version: ' . $currentComposerCompletionVersion . PHP_EOL);
+
         if (!$metaDbExists) {
             $foreRenew = true;
         } elseif (!$foreRenew) {
-            $version = $this->database->loadFromDb('meta')['version'] ?? '0';
-            $foreRenew = version_compare($currentComposerVersion, $version) !== 0;
+            $dbData = $this->database->loadFromDb('meta');
+            $completionVersion = $dbData['composer_completion_version'] ?? '0';
+            $composerVersion = $dbData['composer_version'] ?? '0';
+            $foreRenew =
+                version_compare($currentComposerVersion, $composerVersion) !== 0
+                || version_compare($currentComposerCompletionVersion, $completionVersion) !== 0;
         }
 
         if (!$foreRenew) {
-            Cli::stdOut('Command list for composer version "' . $version . '" already exists. Skip extraction.' . PHP_EOL);
+            Cli::stdOut(sprintf('Command list for composer version "%s" and completion version "%s" already exists. Skip extraction.' . PHP_EOL,
+                                $currentComposerVersion,
+                                $currentComposerCompletionVersion
+                        ));
             return null;
         }
-
-        $version = exec('composer -V -n 2>/dev/null');
-        preg_match('/\d+.\d+.\d+/', $version, $matches);
 
         Cli::stdOut('Start command extraction from composer.phar' . PHP_EOL);
         exec('composer -n list 2>/dev/null', $out);
@@ -65,8 +77,9 @@ class ComposerPharCommandExtractor {
         $collection = $this->extractRecursive($out);
 
         return [
-            'version' => $currentComposerVersion,
-            'data'    => $collection,
+            'composer_completion_version' => $currentComposerCompletionVersion,
+            'composer_version'            => $currentComposerVersion,
+            'data'                        => $collection,
         ];
     }
 
